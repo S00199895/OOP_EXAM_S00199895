@@ -50,5 +50,28 @@ namespace WpfApp1
             lbx_accs.ItemsSource = accounts;
 
         }
+
+        private void lbx_accs_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Account selected = lbx_accs.SelectedItem as Account;
+            if (selected != null)
+            {
+                tblk_fName.Text = selected.FirstName;
+                tblk_lName.Text = selected.LastName;
+                tblk_bal.Text = selected.Balance.ToString();
+                tblk_balance.Text = selected.Balance.ToString();
+
+                if (selected is CurrentAccount)
+                {
+                    CurrentAccount cA = lbx_accs.SelectedItem as CurrentAccount;
+                    tblk_type.Text = "Current Account";
+                    tblk_interestRate.Text = cA.InterestRate.ToString();
+                }
+                else if (selected is SavingsAccount)
+                {
+
+                }
+            }
+        }
     }
 }
