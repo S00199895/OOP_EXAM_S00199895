@@ -33,21 +33,24 @@ namespace WpfApp1
         SavingsAccount saveAcc2 = new SavingsAccount("Nissa", "Revane", 101, 3400);
 
         List<Account> accounts = new List<Account>();
+        List<Account> filteredAccounts = new List<Account>();
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+            cbx_current.IsChecked = true;
+            cbx_save.IsChecked = true;
             //adding accounts to the list
             accounts.Add(currAcc1); accounts.Add(currAcc2); accounts.Add(saveAcc1); accounts.Add(saveAcc2);
-            UpdateLbx();
+            UpdateLbx(accounts);
         }
 
-        private void UpdateLbx()
+        private void UpdateLbx(List<Account> accs)
         {
             accounts.Sort();//sorts the list using the CompareTo method in the class
 
             //Refreshes the display
             lbx_accs.ItemsSource = null;
-            lbx_accs.ItemsSource = accounts;
+            lbx_accs.ItemsSource = accs;
 
         }
 
@@ -71,6 +74,44 @@ namespace WpfApp1
                 {
 
                 }
+            }
+        }
+
+        private void cbx_Click(object sender, RoutedEventArgs e)
+        {
+            if ((cbx_current.IsChecked == true) && (cbx_save.IsChecked == true))
+            {
+                UpdateLbx(accounts);
+            }
+            else if ((cbx_current.IsChecked == false) && (cbx_save.IsChecked == false))
+            {
+                lbx_accs.ItemsSource = null;
+            }
+            else if ((cbx_current.IsChecked == true) && (cbx_save.IsChecked == false))
+            {
+                filteredAccounts.Clear();
+
+                foreach (Account account in accounts)
+                {
+                    if (account is CurrentAccount)
+                    {
+                        filteredAccounts.Add(account);
+                    }
+                }
+                UpdateLbx(filteredAccounts);
+            }
+            else if ((cbx_current.IsChecked == false) && (cbx_save.IsChecked == true))
+            {
+                filteredAccounts.Clear();
+
+                foreach (Account account in accounts)
+                {
+                    if (account is SavingsAccount)
+                    {
+                        filteredAccounts.Add(account);
+                    }
+                }
+                UpdateLbx(filteredAccounts);
             }
         }
     }
