@@ -35,6 +35,7 @@ namespace WpfApp1
         List<Account> accounts = new List<Account>();
         List<Account> filteredAccounts = new List<Account>();
 
+        //When the window loads. . .
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             cbx_current.IsChecked = true;
@@ -58,13 +59,15 @@ namespace WpfApp1
         private void lbx_accs_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             Account selected = lbx_accs.SelectedItem as Account;
+            //Selected cannot be null
             if (selected != null)
             {
                 tblk_fName.Text = selected.FirstName;
                 tblk_lName.Text = selected.LastName;
                 tblk_bal.Text = selected.Balance.ToString();
                 tblk_balance.Text = selected.Balance.ToString();
-
+                
+                //if its a current account, make a new one and take the details from it,
                 if (selected is CurrentAccount)
                 {
                     CurrentAccount cA = lbx_accs.SelectedItem as CurrentAccount;
@@ -119,6 +122,7 @@ namespace WpfApp1
             }
         }
 
+        //Methods for the buttons on the right
         private void btn_deposit_Click(object sender, RoutedEventArgs e)
         {
             Account account = lbx_accs.SelectedItem as Account;

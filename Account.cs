@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace WpfApp1
 {
-    //abstract class. cannot be implemented oly inherited from
+    //abstract class. cannot be implemented only inherited from
+    //Inherits from the interface Icomparable, allows for custom sorting
     public abstract class Account : IComparable
     {
         //properties
@@ -29,10 +30,12 @@ namespace WpfApp1
         }
         public override string ToString()
         {
+            //string format for accounts in the listobx
             return $"{AccountNumber} - {LastName}, {FirstName}";
         }
 
-        //Method used to identify how this object will be sorted - in this case using Surname
+        //Method used to identify how this object will be sorted - in this case using Last Name
+        //Sort method from Icomparable
         public int CompareTo(object obj)
         {
             Account that = obj as Account;
@@ -79,6 +82,7 @@ namespace WpfApp1
             
         }
     }
+    //Child class of account
     public class SavingsAccount : Account
     {
         //props
