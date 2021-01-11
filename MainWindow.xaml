@@ -7,6 +7,22 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        
+        <CheckBox Content="Current Account" HorizontalAlignment="Left" Margin="39,64,0,0" VerticalAlignment="Top"/>
+        <CheckBox Content="Savings Account" HorizontalAlignment="Left" Margin="149,61,0,0" VerticalAlignment="Top"/>
+        <ListBox HorizontalAlignment="Left" Height="259" Margin="39,126,0,0" VerticalAlignment="Top" Width="205"/>
+        <TextBlock HorizontalAlignment="Left" Margin="39,105,0,0" TextWrapping="Wrap" Text="Accounts List" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="433,66,0,0" TextWrapping="Wrap" Text="Account Details" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="423,205,0,0" TextWrapping="Wrap" Text="Balance" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="407,171,0,0" TextWrapping="Wrap" Text="Last Name" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="407,126,0,0" TextWrapping="Wrap" Text="First Name" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="381,334,0,0" TextWrapping="Wrap" Text="Interest Rate" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="419,293,0,0" TextWrapping="Wrap" Text="Balance " VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="393,252,0,0" TextWrapping="Wrap" Text="Account Type" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="380,372,0,0" TextWrapping="Wrap" Text="Transaction Amount" VerticalAlignment="Top"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="514,371,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+        <Button Content="Button" HorizontalAlignment="Left" Margin="695,82,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button Content="Button" HorizontalAlignment="Left" Margin="695,172,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button Content="Button" HorizontalAlignment="Left" Margin="695,124,0,0" VerticalAlignment="Top" Width="75"/>
+
     </Grid>
 </Window>
