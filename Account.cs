@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace WpfApp1
 {
     //abstract class. cannot be implemented oly inherited from
-    public abstract class Account
+    public abstract class Account : IComparable
     {
         //properties
         public abstract int AccountNumber { get; set; }
@@ -29,6 +29,13 @@ namespace WpfApp1
         public override string ToString()
         {
             return $"{AccountNumber} - {LastName}, {FirstName}";
+        }
+
+        //Method used to identify how this object will be sorted - in this case using Surname
+        public int CompareTo(object obj)
+        {
+            Account that = obj as Account;
+            return this.LastName.CompareTo(that.LastName);
         }
 
         //abstract methods

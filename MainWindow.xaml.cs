@@ -32,6 +32,23 @@ namespace WpfApp1
         SavingsAccount saveAcc1 = new SavingsAccount("Booker", "DeWitt", 90, 3000);
         SavingsAccount saveAcc2 = new SavingsAccount("Nissa", "Revane", 101, 3400);
 
+        List<Account> accounts = new List<Account>();
 
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            //adding accounts to the list
+            accounts.Add(currAcc1); accounts.Add(currAcc2); accounts.Add(saveAcc1); accounts.Add(saveAcc2);
+            UpdateLbx();
+        }
+
+        private void UpdateLbx()
+        {
+            accounts.Sort();//sorts the list using the CompareTo method in the class
+
+            //Refreshes the display
+            lbx_accs.ItemsSource = null;
+            lbx_accs.ItemsSource = accounts;
+
+        }
     }
 }
