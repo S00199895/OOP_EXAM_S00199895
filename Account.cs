@@ -40,7 +40,7 @@ namespace WpfApp1
         }
 
         //abstract methods
-        public abstract decimal CalculateInterest();
+        public abstract void CalculateInterest();
     }
 
     public class CurrentAccount : Account
@@ -55,7 +55,8 @@ namespace WpfApp1
 
         //ctors
         public CurrentAccount(string fName, string lName, int accNum, decimal bal)
-        {
+        {//Dummy data easily implementable thorugh constructor
+            //Default interest rate
             InterestRate = .03m;
 
             FirstName = fName;
@@ -65,12 +66,17 @@ namespace WpfApp1
         }
 
         //methods
-        public override decimal CalculateInterest()
+        public override void CalculateInterest()
         {
-            decimal interest = 0;
-            interest = Balance * InterestRate;
-            InterestDate = DateTime.Now;
-            return interest;
+            DateTime date = DateTime.Now.AddYears(-1);
+            //if the date is greater than 1 year ago
+            if (InterestDate == null || InterestDate > date)
+            {
+                decimal interest = 0;
+                interest = Balance * InterestRate;
+                InterestDate = DateTime.Now;
+            }
+            
         }
     }
     public class SavingsAccount : Account
@@ -95,17 +101,17 @@ namespace WpfApp1
         }
 
         //methods
-        public override decimal CalculateInterest()
+        public override void CalculateInterest()
         {
-            /*DateTime toSubtract = new DateTime(1996, 6, 3, 22, 15, 0);
-            if (InterestDate !=null)
-            { 
-                DateTime oneYear = InterestDate.Subtract(toSubtract);
-            }*/
-            decimal interest = 0;
-            interest = Balance * InterestRate;
-            InterestDate = DateTime.Now;
-            return interest;
+            DateTime date = DateTime.Now.AddYears(-1);
+
+            if (InterestDate == null || InterestDate > date)
+            {
+                decimal interest = 0;
+                interest = Balance * InterestRate;
+                InterestDate = DateTime.Now;
+            }
+
         }
     }
 }

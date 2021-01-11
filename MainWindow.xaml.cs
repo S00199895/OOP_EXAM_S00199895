@@ -44,6 +44,7 @@ namespace WpfApp1
             UpdateLbx(accounts);
         }
 
+        //Update listbox as its not observable
         private void UpdateLbx(List<Account> accs)
         {
             accounts.Sort();//sorts the list using the CompareTo method in the class
@@ -79,6 +80,7 @@ namespace WpfApp1
             }
         }
 
+        //Checkbox event listener
         private void cbx_Click(object sender, RoutedEventArgs e)
         {
             if ((cbx_current.IsChecked == true) && (cbx_save.IsChecked == true))
@@ -133,6 +135,13 @@ namespace WpfApp1
             account.Withdraw(amount);
             tblk_balance.Text = account.Balance.ToString();
             tblk_bal.Text = account.Balance.ToString();
+        }
+
+        private void btn_interest_Click(object sender, RoutedEventArgs e)
+        {
+            Account account = lbx_accs.SelectedItem as Account;
+            account.CalculateInterest();
+            tblk_interestDate.Text = DateTime.Now.ToString("MM/dd/yyyy");
         }
     }
 }
