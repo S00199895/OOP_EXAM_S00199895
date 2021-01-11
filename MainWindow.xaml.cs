@@ -24,5 +24,14 @@ namespace WpfApp1
         {
             InitializeComponent();
         }
+
+        //making accounts with the constructors
+        CurrentAccount currAcc1 = new CurrentAccount("John", "Rambo", 55, 1000);
+        CurrentAccount currAcc2 = new CurrentAccount("Shawn", "Michaels", 70, 2500);
+
+        SavingsAccount saveAcc1 = new SavingsAccount("Booker", "DeWitt", 90, 3000);
+        SavingsAccount saveAcc2 = new SavingsAccount("Nissa", "Revane", 101, 3400);
+
+
     }
 }
