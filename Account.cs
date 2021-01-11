@@ -17,14 +17,15 @@ namespace WpfApp1
         public abstract DateTime InterestDate { get; set; }
 
         //methods
-        public void Deposit()
+        public void Deposit(decimal amount)
         {
-
+            Balance += amount;
         }
 
-        public void Withdraw()
+        public void Withdraw(decimal amount)
         {
-
+            if (Balance >= amount)
+            Balance -= amount;
         }
         public override string ToString()
         {

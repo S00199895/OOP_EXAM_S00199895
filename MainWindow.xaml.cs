@@ -68,11 +68,13 @@ namespace WpfApp1
                 {
                     CurrentAccount cA = lbx_accs.SelectedItem as CurrentAccount;
                     tblk_type.Text = "Current Account";
-                    tblk_interestRate.Text = cA.InterestRate.ToString();
+                    tblk_interestDate.Text = null;
                 }
                 else if (selected is SavingsAccount)
                 {
-
+                    SavingsAccount sA = lbx_accs.SelectedItem as SavingsAccount;
+                    tblk_type.Text = "Savings Account";
+                    tblk_interestDate.Text = null;
                 }
             }
         }
@@ -113,6 +115,24 @@ namespace WpfApp1
                 }
                 UpdateLbx(filteredAccounts);
             }
+        }
+
+        private void btn_deposit_Click(object sender, RoutedEventArgs e)
+        {
+            Account account = lbx_accs.SelectedItem as Account;
+            decimal amount = decimal.Parse(tbx_amount.Text);
+            account.Deposit(amount);
+            tblk_balance.Text = account.Balance.ToString();
+            tblk_bal.Text = account.Balance.ToString();
+        }
+
+        private void btn_withdraw_Click(object sender, RoutedEventArgs e)
+        {
+            Account account = lbx_accs.SelectedItem as Account;
+            decimal amount = decimal.Parse(tbx_amount.Text);
+            account.Withdraw(amount);
+            tblk_balance.Text = account.Balance.ToString();
+            tblk_bal.Text = account.Balance.ToString();
         }
     }
 }
