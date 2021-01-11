@@ -46,9 +46,14 @@ namespace WpfApp1
         public override int AccountNumber { get; set; }
 
         //ctors
-        public CurrentAccount()
+        public CurrentAccount(string fName, string lName, int accNum, decimal bal)
         {
             InterestRate = .03m;
+
+            FirstName = fName;
+            LastName = lName;
+            AccountNumber = accNum;
+            Balance = bal;
         }
 
         //methods
@@ -71,9 +76,14 @@ namespace WpfApp1
         public decimal InterestRate { get; set; }
 
         //ctors
-        public SavingsAccount()
+        public SavingsAccount(string fName, string lName, int accNum, decimal bal)
         {
-            InterestRate = .06m;
+            InterestRate = .03m;
+
+            FirstName = fName;
+            LastName = lName;
+            AccountNumber = accNum;
+            Balance = bal;
         }
 
         //methods
